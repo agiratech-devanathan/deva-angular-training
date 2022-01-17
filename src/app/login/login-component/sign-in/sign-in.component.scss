@@ -1,24 +1,23 @@
-.sh-u-container{
-    width: 80%;
+.sh-u-container {
+  width: 80%;
+  margin: auto;
+  height: 100%;
+  background-color: rgb(235, 235, 235);
+  padding-top: 10%;
+  .sign-in-section {
+    width: 40%;
     margin: auto;
-    height: 100%;
-    background-color: rgb(235, 235, 235);
-    padding-top: 10%;
-    .sign-in-section{
-        width: 40%;
-        margin: auto;
-        .mat-card-title{
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .signin-btn{
-            width: 100%;
-            padding: 5px;
-            font-size: 16px;
-        }
-        .err-msg{
-            font-size: 13px;
-        }
+    .mat-card-title {
+      text-align: center;
+      margin-bottom: 20px;
     }
-
+    .signin-btn {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .err-msg {
+      font-size: 13px;
+    }
+  }
 }

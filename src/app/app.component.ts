@@ -7,5 +7,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angularProject9';
+  title = 'devaAngularTraining';
 }

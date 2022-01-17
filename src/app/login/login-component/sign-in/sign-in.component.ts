@@ -9,29 +9,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-  signInForm:FormGroup;
+  signInForm: FormGroup;
   constructor(
-    private formBuilder:FormBuilder,
-    private router:Router
-    ) { }
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.signInBuildForm();
   }
 
-  signInBuildForm(){
-    this.signInForm=this.formBuilder.group({
-      userName:['',Validators.required],
-      password:['',Validators.required]
+  signInBuildForm() {
+    this.signInForm = this.formBuilder.group({
+      userName: ['', Validators.required],
+      password: ['', Validators.required]
     })
   }
-onSignIn(){
-  if(this.signInForm.valid){
-    this.router.navigate(['/home'])
-    console.log("dashboard shown")
-  }
+  onSignIn() {
+    if (this.signInForm.valid) {
+      this.router.navigate(['/home'])
+      console.log("dashboard shown")
+    }
 
-  console.log("derror")
-  
-}
+    console.log("derror")
+
+  }
 }
