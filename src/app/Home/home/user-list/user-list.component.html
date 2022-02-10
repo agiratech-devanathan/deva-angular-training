@@ -1,0 +1,29 @@
+
+<div class="sh-u-container">
+    <mat-card class="userList-page">
+    <table class="userList-box">
+       
+        
+        <tbody>
+            <tr>
+                <th>User Name</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Company Website</th>
+                <th>Mobile</th>
+                
+            </tr>
+            <tr  *ngFor="let user of usersList">
+                <td>{{user.username}} </td>
+                <td>{{user.name }} </td>
+                <td>{{user.email }} </td>
+                <td>{{user.website}} </td>
+                <td>{{user.address.zipcode}} </td>
+            </tr>
+        </tbody>
+
+    </table>
+     
+    <button mat-flat-button color="primary" routerLink="/">close</button>
+</mat-card>
+</div>

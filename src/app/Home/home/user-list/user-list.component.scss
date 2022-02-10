@@ -1,0 +1,33 @@
+.sh-u-container {
+    width: 80%;
+    margin: auto;
+    height: 100%;
+    background-color: rgb(235, 235, 235);
+    padding-top: 5%;
+    .userList-page {
+      padding: 5%;
+      width: 60%;
+      margin: auto;
+      text-align: center;
+      .userList-box{
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+          
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+      }
+      button{
+          margin-top: 2rem;
+      }
+    }
+  }
+ 
+  
+  

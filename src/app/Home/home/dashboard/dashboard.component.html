@@ -1,8 +1,18 @@
+
+ <div>
+    <mat-toolbar color="primary">
+            <button mat-icon-button class="example-icon" (click)="logout()">
+            <mat-icon>person</mat-icon>Sign Out
+          </button>
+    </mat-toolbar>
+ </div>
 <div class="sh-u-container">
+    
     <mat-card class="welcome-page">
         <mat-card-content class="wel-come">
             <h1>Welcome!...</h1>
         </mat-card-content>
-        <button mat-flat-button color="primary" routerLink="/">Thank You</button>
+        <button mat-flat-button color="primary" routerLink="userList">View UsersList</button>
     </mat-card>
+  
 </div>

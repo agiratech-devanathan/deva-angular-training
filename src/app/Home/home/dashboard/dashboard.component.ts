@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+ 
+  ngOnInit() {
+ 
   }
+  constructor(private apiService:ApiService) {}
+
+logout(){
+  this.apiService.signOut()
+  console.log("Logged out")
+}
 
 }

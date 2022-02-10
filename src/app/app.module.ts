@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
-
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './Providers/Interceptor/interceptor.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -20,7 +21,6 @@ import { MaterialModule } from './material/material.module';
     FlexLayoutModule,
     MaterialModule,
     ReactiveFormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
