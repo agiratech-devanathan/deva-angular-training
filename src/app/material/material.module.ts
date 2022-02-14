@@ -12,7 +12,8 @@ const materialComponent = [
   MatFormFieldModule,
   MatInputModule,
   MatIconModule,
-  MatToolbarModule
+  MatToolbarModule,
+  
   
 ];
 @NgModule({

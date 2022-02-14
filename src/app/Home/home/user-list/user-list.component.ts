@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -16,5 +17,11 @@ export class UserListComponent implements OnInit {
 
   fetchUser(){
     this.apiService.getUsers().subscribe(res=>this.usersList=res)
+  }
+
+  canDeactivate(){
+    return new Promise((resolve,reject)=>{
+      resolve(confirm("Do you want to go back..."));
+    });
   }
 }

@@ -1,9 +1,11 @@
 
  <div>
-    <mat-toolbar color="primary">
-            <button mat-icon-button class="example-icon" (click)="logout()">
+    <mat-toolbar color="primary"  div fxLayout="row" fxLayoutAlign="space-between center">
+        
+            <button mat-icon-button class="example-icon" (click)="logout()" >
             <mat-icon>person</mat-icon>Sign Out
           </button>
+         
     </mat-toolbar>
  </div>
 <div class="sh-u-container">
@@ -13,6 +15,7 @@
             <h1>Welcome!...</h1>
         </mat-card-content>
         <button mat-flat-button color="primary" routerLink="userList">View UsersList</button>
+        <!-- <button mat-flat-button color="primary" routerLink="addUser">Add User</button> -->
     </mat-card>
   
 </div>
