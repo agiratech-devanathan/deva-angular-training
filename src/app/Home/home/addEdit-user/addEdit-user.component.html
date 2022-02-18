@@ -5,7 +5,7 @@
         </div>
         <div fxLayout="column" >
 
-            <mat-form-field appearance="outline" >
+            <!-- <mat-form-field appearance="outline" >
                 <mat-label>First Name</mat-label>
                 <input type="text" matInput placeholder="Enter FirstName" formControlName="first_Name">
             </mat-form-field>
@@ -18,16 +18,17 @@
             <mat-form-field appearance="outline" >
                 <mat-label>Email</mat-label>
                 <input type="text" matInput placeholder="Enter Email" formControlName="email_Address">
-            </mat-form-field>
+            </mat-form-field> -->
 
             <mat-form-field appearance="outline" [floatLabel]="'always'">
                 <mat-label>Phone Number</mat-label>
                 <input type="text" matInput placeholder="Enter Phone Number" 
-                ng2TelInput
+                ng2TelInput #phoneInput
                  [ng2TelInputOptions]="{initialCountry: 'in'}"
-                (ng2TelOutput)="getNumber($event)"
+               
                 (intlTelInputObject)="telInputObject($event)"
-                (countryChange)="onCountryChange($event)" formControlName="phone_Number">
+                (countryChange)="onCountryChange($event)" formControlName="phone_Number" appMobileFormat [length]="10" format="0" />
+               
             </mat-form-field>
 
             <div class="action-button" fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="10px">
