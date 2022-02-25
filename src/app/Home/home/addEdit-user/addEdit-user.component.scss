@@ -1,0 +1,26 @@
+.sh-u-container {
+    width: 80%;
+    margin: auto;
+    height: 100%;
+    background-color: rgb(235, 235, 235);
+    padding-top: 5%;
+    .add_user_form{
+        
+        width: 40%;
+        height: auto;
+        
+        background-color: rgb(243, 242, 247);
+        padding:30px 10px;
+        margin-left: 30%;
+        .form-title{
+            text-align: center;
+        }
+        .action-button{
+            button{
+                font-size: 16px;
+                padding: 5px 0px
+            }
+        }
+        
+    }
+  }

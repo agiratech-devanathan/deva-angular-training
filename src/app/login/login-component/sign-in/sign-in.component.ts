@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { validateBasis } from '@angular/flex-layout';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,6 +9,11 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
+  public emailId ;
+    public tokenId;
+    public email;
+    public token;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router
@@ -25,13 +29,19 @@ export class SignInComponent implements OnInit {
       password: ['', Validators.required]
     })
   }
-  onSignIn() {
-    if (this.signInForm.valid) {
-      this.router.navigate(['/home'])
-      console.log("dashboard shown")
-    }
 
-    console.log("derror")
+  onSignIn() {
+ this.email =this.signInForm.controls.userName.value;
+ this.token=this.email.split('@').reverse()[1]
+ localStorage.setItem("token",JSON.stringify(this.token))
+ localStorage.setItem("Email",JSON.stringify(this.email))
+ if (this.signInForm.valid) {
+  this.router.navigate(['/home'])
+  console.log("dashboard shown")
+}
+
 
   }
+
+
 }
