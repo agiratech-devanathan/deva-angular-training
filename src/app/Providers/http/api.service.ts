@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { userListModel } from 'src/app/shared/sharedModel';
 import {map} from 'rxjs/operators'
 
@@ -9,8 +9,8 @@ import {map} from 'rxjs/operators'
 })
 export class ApiService {
 
-  constructor(private http:HttpClient,private router:Router) { }
-
+  constructor(private http:HttpClient,private router:Router,private activatedRoute:ActivatedRoute) { }
+  userListArr:userListModel[]=[];
 
 onPostData(userList:userListModel){
   this.http.post('https://anguartraining-default-rtdb.firebaseio.com/userList.json',userList).subscribe(postRes=>{
@@ -21,22 +21,36 @@ onPostData(userList:userListModel){
 onFetchData(){
   return this.http.get<{[key:string]:userListModel}>('https://anguartraining-default-rtdb.firebaseio.com/userList.json')
    .pipe(map(responseData=>{
-    
-       const userListArr:userListModel[]=[];
        for(const key in responseData){
            if(responseData.hasOwnProperty(key)){
-               userListArr.push({...responseData[key],id:key})
+               this.userListArr.push({...responseData[key],id:key})
            }
        }
-       console.log(userListArr)
-       return userListArr;
+       console.log(this.userListArr)
+       return this.userListArr;
    })
    )
  }
 
- onEditData(){
-   
- }
+//  onEditData(data){
+//    this.userdata.push(data)
+//   // this.activatedRoute.queryParams.subscribe((params)=>{
+//   //   console.log(params)
+//   //  data.id=params['id'];
+//    console.log(this.userdata)
+//    const index=this.userdata.map(x=>x.id).indexOf(data);
+//    console.log(index)
+
+//   // this.apiService.onFetchData().subscribe(resData=>{
+//   //   for(let i=0; i<resData.length;i++){
+//   //     if(resData[i].id==this.id){
+//   //       console.log(resData[i].phone_Number)
+//   //       this.addUserForm.setValue({phone_Number:resData[i].phone_Number ? resData[i].phone_Number.split(' ').reverse()[0]:''})
+//   //     }
+//   //   }
+//   // })
+//   //  });
+//  }
 
 signOut(){
   localStorage.removeItem('token')

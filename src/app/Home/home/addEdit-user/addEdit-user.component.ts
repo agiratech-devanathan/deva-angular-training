@@ -16,6 +16,7 @@ export class AddEditUserComponent implements OnInit {
   addUserForm: FormGroup;
   userData = [];
   viewData = [];
+  id:string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,7 +28,9 @@ export class AddEditUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.initilaForm();
-this.onUpdataData()
+    this.onUpdataData();
+    this.getData();
+    // this.apiService.onEditData(this.userData)
 
   }
 
@@ -51,31 +54,58 @@ this.onUpdataData()
  
 
   saveData() {
-    const addFormData= {
-      // firstName: this.addUserForm.controls.first_Name.value,
-      // lastName: this.addUserForm.controls.last_Name.value,
-      // email: this.addUserForm.controls.email_Address.value,
-      phone_Number: '+' + this.dialcode + " " + this.addUserForm.controls.phone_Number.value,
+  
+    
+    if(this.userData.length>0){
+console.log("hello")
     }
-    console.log(addFormData)
-this.apiService.onPostData(addFormData)
+    else{
+      console.log("hi")
+      const addFormData= {
+        // firstName: this.addUserForm.controls.first_Name.value,
+        // lastName: this.addUserForm.controls.last_Name.value,
+        // email: this.addUserForm.controls.email_Address.value,
+        phone_Number: '+' + this.dialcode + " " + this.addUserForm.controls.phone_Number.value,
+      }
+      this.apiService.onPostData(addFormData)
+      console.log(addFormData)
+    
+    }
+    this.router.navigate(['home/userList']) 
   }
-
-
 
 onUpdataData(){
-  const updateData={
-    
-  }
-  this.getDataFromUri()
-  
+  console.log(this.userData)
+ 
 }
- getDataFromUri(){
-   this.activatedRoute.queryParams.subscribe(
-     param=>{
-       console.log(param)
-     }
-   )
- }
+
+modifyData(){
+  const payload={
+    phone_Number:this.addUserForm.controls.phone_Number.value
+  }
+  console.log(payload)
+  return payload
+}
+getData(){
+  this.apiService.onFetchData().subscribe(res=>{
+    for(const key in res){
+      if(res.hasOwnProperty(key)){
+        this.userData.push({...res[key],id:key})
+    }
+    }
+    console.log(this.userData)
+  })
+}
+//  getDataFromUrl(){
+//    this.activatedRoute.queryParams.subscribe(
+//      param=>{
+//        console.log(param)
+//      }
+//    )
+//  }
+
+close(){
+  this.router.navigate(['home/userList'])
+}
 
 }
