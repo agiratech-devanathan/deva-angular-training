@@ -22,12 +22,22 @@ export class UserListComponent implements OnInit {
     this.onGetData()
   }
 
-  seeData(data) {
+  updateData(data:userListModel) {
     console.log(data)
-  }
-  updateData(data) {
-    console.log(data)
-    this.router.navigate(['/addUser'])
+    this.router.navigate(['home/addUser'], {
+  
+        queryParams:{
+        id:data.id,
+     
+       //  name:contactData.name,
+       //  workspace:contactData.workspace,  
+       //  role:contactData.role,
+       //  email:contactData.email,
+       //  phoneNumber:contactData.phoneNumber,
+        
+     },fragment:'loading'});
+     
+     console.log(data.id)
   }
   removeData(data) {
     console.log(data)

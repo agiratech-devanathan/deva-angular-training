@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
-  public emailId ;
+    public emailId ;
     public tokenId;
     public email;
     public token;
+    signUpcred=[];
+   
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,6 +23,7 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.signInBuildForm();
+  
   }
 
   signInBuildForm() {
@@ -31,17 +34,25 @@ export class SignInComponent implements OnInit {
   }
 
   onSignIn() {
- this.email =this.signInForm.controls.userName.value;
- this.token=this.email.split('@').reverse()[1]
- localStorage.setItem("token",JSON.stringify(this.token))
- localStorage.setItem("Email",JSON.stringify(this.email))
- if (this.signInForm.valid) {
-  this.router.navigate(['/home'])
-  console.log("dashboard shown")
-}
-
-
+this.validateCred()
   }
 
-
+validateCred(){
+   this.signUpcred.push(JSON.parse(localStorage.getItem("signupCred")))
+   this.signUpcred.forEach(element=>{
+    if(this.signInForm.controls.userName.value==element.email && this.signInForm.controls.password.value==element.password){
+      this.token=this.signInForm.controls.userName.value.split('@').reverse()[1]
+      localStorage.setItem("token",JSON.stringify(this.token))
+    if(localStorage.getItem('token')){
+      this.router.navigate(['/home'])
+    }
+    console.log("both are crt")
+    }
+    else{
+      this.router.navigate(['login'])
+      console.log("both are wrong")
+    }
+    
+   })
+}
 }
