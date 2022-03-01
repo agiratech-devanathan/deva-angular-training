@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 const materialComponent = [
   MatButtonModule,
   MatCardModule,
@@ -14,7 +16,9 @@ const materialComponent = [
   MatInputModule,
   MatIconModule,
   MatToolbarModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatListModule,
+  MatRadioModule
   
   
 ];

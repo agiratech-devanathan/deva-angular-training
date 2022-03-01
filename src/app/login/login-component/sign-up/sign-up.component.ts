@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private router:Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.signUpBuildForm()
@@ -16,20 +16,20 @@ export class SignUpComponent implements OnInit {
 
   signUpBuildForm() {
     this.signUpForm = this.formBuilder.group({
-     firstName: ['', Validators.required],
+      firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
-  onSignUp(){
-    const signUpCredData= {
+  onSignUp() {
+    const signUpCredData = {
       firstName: this.signUpForm.controls.firstName.value,
       lastName: this.signUpForm.controls.lastName.value,
       email: this.signUpForm.controls.email.value,
-      password:this.signUpForm.controls.password.value,
+      password: this.signUpForm.controls.password.value,
     }
-    localStorage.setItem("signupCred",JSON.stringify(signUpCredData))
+    localStorage.setItem("signupCred", JSON.stringify(signUpCredData))
     console.log(signUpCredData)
     this.router.navigate(['/home'])
   }
