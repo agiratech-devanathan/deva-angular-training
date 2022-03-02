@@ -1,6 +1,7 @@
 <div class="sh-u-container">
     <section class="assessment-section">
         <form [formGroup]="assessmentForm">
+            <div><h1>Fill the details</h1></div>
             <mat-card class="assessment-card" >
                 <mat-card-title fxLayout="row" fxLayoutAlign="start center" >1.what is your Age</mat-card-title>
                 <mat-card-content>
@@ -13,9 +14,9 @@
             <mat-card class="assessment-card" >
                 <mat-card-title fxLayout="row" fxLayoutAlign="start center" >2.Do you have fever</mat-card-title>
                 <mat-card-content>
-                    <mat-radio-group  fxLayout="column">
-                        <mat-radio-button formControlName="assessRadio" value="1">Yes</mat-radio-button>
-                        <mat-radio-button formControlName="assessRadio" value="0">No</mat-radio-button>
+                    <mat-radio-group formControlName="assessRadio1" fxLayout="column">
+                        <mat-radio-button  value="1" >Yes</mat-radio-button>
+                        <mat-radio-button  value="0">No</mat-radio-button>
                       </mat-radio-group>
                 </mat-card-content>
             </mat-card>
@@ -32,9 +33,9 @@
             <mat-card class="assessment-card" >
                 <mat-card-title fxLayout="row" fxLayoutAlign="start center" >3.Do you have loss of smell</mat-card-title>
                 <mat-card-content>
-                    <mat-radio-group  fxLayout="column">
-                        <mat-radio-button formControlName="assessRadio" value="1">Yes</mat-radio-button>
-                        <mat-radio-button formControlName="assessRadio" value="0">No</mat-radio-button>
+                    <mat-radio-group formControlName="assessRadio2" fxLayout="column">
+                        <mat-radio-button value="1">Yes</mat-radio-button>
+                        <mat-radio-button value="0">No</mat-radio-button>
                       </mat-radio-group>
                 </mat-card-content>
             </mat-card>
@@ -42,9 +43,9 @@
             <mat-card class="assessment-card" >
                 <mat-card-title fxLayout="row" fxLayoutAlign="start center" >4.Do you have loass of taste</mat-card-title>
                 <mat-card-content>
-                    <mat-radio-group  fxLayout="column">
-                        <mat-radio-button formControlName="assessRadio" value="1">Yes</mat-radio-button>
-                        <mat-radio-button formControlName="assessRadio" value="0">No</mat-radio-button>
+                    <mat-radio-group formControlName="assessRadio3" fxLayout="column">
+                        <mat-radio-button value="1" >Yes</mat-radio-button>
+                        <mat-radio-button value="0">No</mat-radio-button>
                       </mat-radio-group>
                 </mat-card-content>
             </mat-card>
@@ -52,9 +53,9 @@
             <mat-card class="assessment-card" >
                 <mat-card-title fxLayout="row" fxLayoutAlign="start center" >5.Do you have cough</mat-card-title>
                 <mat-card-content>
-                    <mat-radio-group  fxLayout="column">
-                        <mat-radio-button formControlName="assessRadio" value="1">Yes</mat-radio-button>
-                        <mat-radio-button formControlName="assessRadio" value="0">No</mat-radio-button>
+                    <mat-radio-group formControlName="assessRadio4" fxLayout="column">
+                        <mat-radio-button value="1" >Yes</mat-radio-button>
+                        <mat-radio-button value="0">No</mat-radio-button>
                       </mat-radio-group>
                 </mat-card-content>
             </mat-card>
@@ -62,9 +63,9 @@
             <mat-card class="assessment-card" >
                 <mat-card-title fxLayout="row" fxLayoutAlign="start center" >6.Do you feel any distrubance in breathing</mat-card-title>
                 <mat-card-content>
-                    <mat-radio-group  fxLayout="column">
-                        <mat-radio-button formControlName="assessRadio" value="1">Yes</mat-radio-button>
-                        <mat-radio-button formControlName="assessRadio" value="0">No</mat-radio-button>
+                    <mat-radio-group formControlName="assessRadio5" fxLayout="column">
+                        <mat-radio-button value="1" >Yes</mat-radio-button>
+                        <mat-radio-button value="0" >No</mat-radio-button>
                       </mat-radio-group>
                 </mat-card-content>
             </mat-card>
@@ -72,9 +73,9 @@
             <mat-card class="assessment-card" >
                 <mat-card-title fxLayout="row" fxLayoutAlign="start center" >7.Do you check RTPCR test</mat-card-title>
                 <mat-card-content>
-                    <mat-radio-group  fxLayout="column">
-                        <mat-radio-button formControlName="assessRadio" value="1">Yes</mat-radio-button>
-                        <mat-radio-button formControlName="assessRadio" value="0">No</mat-radio-button>
+                    <mat-radio-group formControlName="assessRadio6" fxLayout="column">
+                        <mat-radio-button value="1" >Yes</mat-radio-button>
+                        <mat-radio-button value="0">No</mat-radio-button>
                       </mat-radio-group>
                 </mat-card-content>
             </mat-card>
@@ -82,12 +83,16 @@
             <mat-card class="assessment-card" >
                 <mat-card-title fxLayout="row" fxLayoutAlign="start center" >Enter your RTPCR sample result</mat-card-title>
                 <mat-card-content>
-                    <mat-radio-group  fxLayout="column">
-                        <mat-radio-button formControlName="assessRadio" value="1">Postive</mat-radio-button>
-                        <mat-radio-button formControlName="assessRadio" value="0">Negative</mat-radio-button>
+                    <mat-radio-group formControlName="assessRadio7" fxLayout="column">
+                        <mat-radio-button value="1" >Postive</mat-radio-button>
+                        <mat-radio-button value="0">Negative</mat-radio-button>
                       </mat-radio-group>
                 </mat-card-content>
             </mat-card>
+
+            <div fxLayout="row" fxLayoutAlign="center center" class="resbtn">
+                <button type="submit" mat-flat-button color="primary" class="signin-btn" (click)="takeResult()">Take Result</button>
+            </div>
         </form>
     </section>
 </div>
