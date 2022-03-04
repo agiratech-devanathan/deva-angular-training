@@ -28,7 +28,7 @@ export class AddEditUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.initilaForm();
-    this.onUpdataData();
+
     this.getData();
   }
   initilaForm() {
@@ -37,35 +37,33 @@ export class AddEditUserComponent implements OnInit {
     });
   }
   onCountryChange(event) {
-    console.log(event)
+    
     this.dialcode = event.dialCode
   }
   telInputObject(obj) {
-    console.log(obj);
+    
     this.dialcode = obj.s.dialCode
   }
   saveData() {
     if (this.userData.length > 0) {
-      console.log("hello")
+      
     }
     else {
-      console.log("hi")
+   
       const addFormData = {
         phone_Number: '+' + this.dialcode + " " + this.addUserForm.controls.phone_Number.value,
       }
       this.apiService.onPostData(addFormData)
-      console.log(addFormData)
+      
     }
     this.router.navigate(['home/userList'])
   }
-  onUpdataData() {
-    console.log(this.userData)
-  }
+  
   modifyData() {
     const payload = {
       phone_Number: this.addUserForm.controls.phone_Number.value
     }
-    console.log(payload)
+
     return payload
   }
   getData() {
@@ -75,7 +73,7 @@ export class AddEditUserComponent implements OnInit {
           this.userData.push({ ...res[key], id: key })
         }
       }
-      console.log(this.userData)
+      
     })
   }
   close() {

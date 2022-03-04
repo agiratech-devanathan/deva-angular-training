@@ -42,7 +42,7 @@ export class AssessmentPageComponent implements OnInit {
     console.log(result)
     let c=0;
     for(let i=1;i<=numRes.length;i++){
-        c =c+numRes[i];
+        c +=numRes[i];
        
     }
     console.log(c)
