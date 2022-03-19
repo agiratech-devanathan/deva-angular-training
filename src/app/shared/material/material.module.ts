@@ -19,8 +19,6 @@ const materialComponent = [
   MatCheckboxModule,
   MatListModule,
   MatRadioModule
-  
-  
 ];
 @NgModule({
 
