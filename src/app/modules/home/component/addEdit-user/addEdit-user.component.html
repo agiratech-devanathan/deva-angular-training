@@ -1,0 +1,27 @@
+<div class="sh-u-container">
+    <form class="add_user_form" [formGroup]="addUserForm" (ngSubmit)="saveData()">
+        <div class="form-title">
+            <h1>Add User</h1>
+        </div>
+        <div fxLayout="column">
+            <mat-form-field appearance="outline" [floatLabel]="'always'">
+                <mat-label>Phone Number</mat-label>
+                <input type="text" matInput placeholder="Enter Phone Number" ng2TelInput #phoneInput
+                    [ng2TelInputOptions]="{initialCountry: 'in'}" (intlTelInputObject)="telInputObject($event)"
+                    (countryChange)="onCountryChange($event)" formControlName="phone_Number" appMobileFormat
+                    [length]="10" format="0" />
+                <mat-error *ngIf="addUserForm.get('phone_Number').invalid" class="err-msg">phone number is required
+                </mat-error>
+            </mat-form-field>
+            <div class="terms-and-condition">
+                <mat-checkbox>
+                    <a>Agree Terms of service and privacy policy </a>
+                </mat-checkbox>
+            </div>
+            <div class="action-button" fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="10px">
+                <button type="submit" mat-flat-button color="primary">Save</button>
+                <button mat-flat-button color="warn" (click)="close()">Back</button>
+            </div>
+        </div>
+    </form>
+</div>
