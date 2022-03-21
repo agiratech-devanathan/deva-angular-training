@@ -49,16 +49,8 @@ export class AssessmentPageComponent implements OnInit {
     numRes.forEach((res)=>{
       sum+=res;
     })
-    this.finalRes=sum
-    //if(sum==8){
-    // console.log("High risk")
-    //     }
-    //     else if(sum>=4 && sum<8){
-    //       console.log("Medium Risk")
-    //     }
-    //     else if(sum<4){
-    //       console.log('low risk')
-    // }
-    this.api_Serivice.myMethodSubject.next(this.finalRes)
- }
+    this.finalRes=sum;
+    localStorage.setItem("assessmentRes",JSON.stringify(this.finalRes));
+  }
 }
+

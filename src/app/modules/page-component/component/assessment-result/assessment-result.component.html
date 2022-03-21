@@ -1,12 +1,27 @@
-<div *ngIf="assessRes==2">
-    <p> High risk</p>
+
+  <p> AssessmentRes{{assessmentRes}}</p>
+<div *ngIf="assessmentRes==8">
+    <mat-card>
+      <mat-card-content>
+          High Risk
+      </mat-card-content>
+    </mat-card>
+    
+</div>
+
+<div *ngIf="assessmentRes>=4  &&  assessmentRes < 8">
+    <p> Medium risk</p>
+</div>
+
+<div *ngIf="assessmentRes < 4">
+    <p> Low risk</p>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="center center" class="resbtn">
     <button type="button" mat-flat-button color="primary" class="signin-btn" >Take Quarantime</button>
 </div> 
 <div fxLayout="row" fxLayoutAlign="center center" class="resbtn">
-    <p>To Know covid-19 cases histroy</p>
-    <button type="button" mat-flat-button color="primary" class="signin-btn"  ><a href="https://www.mohfw.gov.in">Visit the Link</a> </button>
+    <p></p>
+   <a href="https://www.mohfw.gov.in"> <button type="button" mat-flat-button color="primary" class="signin-btn"  >To Know covid-19 cases histories</button></a>
 </div> 
 
