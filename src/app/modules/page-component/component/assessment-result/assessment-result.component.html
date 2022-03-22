@@ -10,11 +10,19 @@
 </div>
 
 <div *ngIf="assessmentRes>=4  &&  assessmentRes < 8">
-    <p> Medium risk</p>
+    <mat-card>
+        <mat-card-content>
+            Medium Risk
+        </mat-card-content>
+      </mat-card>
 </div>
 
 <div *ngIf="assessmentRes < 4">
-    <p> Low risk</p>
+    <mat-card>
+        <mat-card-content>
+            Low Risk
+        </mat-card-content>
+      </mat-card>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="center center" class="resbtn">
