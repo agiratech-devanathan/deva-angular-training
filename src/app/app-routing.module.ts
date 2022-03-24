@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageComponentComponent } from './modules/page-component/page-component.component';
-import { AuthGuard } from './Providers/authGuard/auth.guard';
+
 
 
 
@@ -20,6 +19,11 @@ const routes: Routes = [
     path: 'assessment',
     loadChildren: ()=> import('./modules/page-component/page-component.module').then(module=>module.PageComponentModule)
   },
+
+  {
+    path:'authentication',
+    loadChildren:()=> import('./modules/authentication/authentication.module').then(module=>module.AuthenticationModule)
+  }
 
  
   
