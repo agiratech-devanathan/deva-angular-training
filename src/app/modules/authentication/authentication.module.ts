@@ -12,15 +12,21 @@ import { AuthenticationComponent } from './authentication.component';
 
 
 
+
 @NgModule({
-  declarations: [SignInComponent,SignUpComponent,ForgotPasswordComponent,AuthenticationComponent],
+  declarations: [
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    AuthenticationComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     AuthenticationRoutingModule,
-    CommonSharedModule
+    CommonSharedModule,
   ]
 })
 export class AuthenticationModule { }
