@@ -41,14 +41,11 @@ export class SignInComponent implements OnInit {
   validateCred() {
     this.signUpcred.push(JSON.parse(localStorage.getItem("signupCred")))
     this.signUpcred.forEach((element, index) => {
-      console.log(element)
-      console.log(element[index].email)
-      console.log(element[index].password)
-      console.log(this.signInForm.controls.password.value)
+   
       if (this.signInForm.controls.userName.value == element[index].email && this.signInForm.controls.password.value == element.password) {
         this.token = this.signInForm.controls.userName.value.split('@').reverse()[1]
         localStorage.setItem("token", JSON.stringify(this.token))
-        console.log(this.signInForm.controls.password.value)
+     
 
         if (localStorage.getItem('token')) {
           this.router.navigate(['/assessment'])
