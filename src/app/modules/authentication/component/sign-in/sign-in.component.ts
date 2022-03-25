@@ -48,7 +48,7 @@ export class SignInComponent implements OnInit {
       if (this.signInForm.controls.userName.value == element[index].email && this.signInForm.controls.password.value == element.password) {
         this.token = this.signInForm.controls.userName.value.split('@').reverse()[1]
         localStorage.setItem("token", JSON.stringify(this.token))
-        console.log(this.signInForm.controls.password.value)
+     
 
         if (localStorage.getItem('token')) {
           this.router.navigate(['/assessment'])
