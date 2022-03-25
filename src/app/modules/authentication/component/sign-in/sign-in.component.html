@@ -1,3 +1,4 @@
+
 <div class="sh-u-container">
     <section class="sign-in-section">
         <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
@@ -19,9 +20,13 @@
                         </mat-form-field>
                     </mat-card-content>
                 </div>
+                    <div class="forgot-btn"  >
+                       
+                        <a routerLink="../forgot-password">Forgot Password</a>
+                    </div>
                 <button type="submit" mat-flat-button color="primary" class="signin-btn">Sign In</button>
-                <div>
-                    <a routerLink="sign-up">Don't have an account? Create New Account</a>
+                <div class="create-new-account">
+                    <a routerLink="../sign-up">Don't have an account? Create New Account</a>
                 </div>
 
             </mat-card>

@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -39,17 +40,23 @@ export class SignInComponent implements OnInit {
 
   validateCred() {
     this.signUpcred.push(JSON.parse(localStorage.getItem("signupCred")))
-    this.signUpcred.forEach(element => {
-      if (this.signInForm.controls.userName.value == element.email && this.signInForm.controls.password.value == element.password) {
+    this.signUpcred.forEach((element, index) => {
+      console.log(element)
+      console.log(element[index].email)
+      console.log(element[index].password)
+      console.log(this.signInForm.controls.password.value)
+      if (this.signInForm.controls.userName.value == element[index].email && this.signInForm.controls.password.value == element.password) {
         this.token = this.signInForm.controls.userName.value.split('@').reverse()[1]
         localStorage.setItem("token", JSON.stringify(this.token))
+        console.log(this.signInForm.controls.password.value)
+
         if (localStorage.getItem('token')) {
-          this.router.navigate(['/home'])
+          this.router.navigate(['/assessment'])
         }
         console.log("both are crt")
       }
       else {
-        this.router.navigate(['login'])
+        this.router.navigate(['..sign-in/'])
         console.log("both are wrong")
       }
 

@@ -31,6 +31,6 @@ export class SignUpComponent implements OnInit {
     }
     localStorage.setItem("signupCred", JSON.stringify(signUpCredData))
     console.log(signUpCredData)
-    this.router.navigate(['/home'])
+    this.router.navigate(['/assessment'])
   }
 }

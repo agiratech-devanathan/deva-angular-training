@@ -7,18 +7,13 @@ import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class ApiService {
-  public myMethodSubject: Subject<any> = new Subject<any>();
-  //myMethod$: Observable<any>;
+
   constructor(
     
      private http:HttpClient,
      private router:Router,
      private activatedRoute:ActivatedRoute
-    ) {} //this.myMethod$ = this.myMethodSubject.asObservable();}
-
-    // sendData(data) {
-    //   this.myMethodSubject.next(data);
-    // }
+    ) {}
   userListArr:userListModel[]=[];
 
 onPostData(userList:userListModel){

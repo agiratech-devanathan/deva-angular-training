@@ -1,0 +1,49 @@
+
+section{
+
+.assessmentRes{
+     position: relative;
+     margin-left: 16%;
+    img{
+        width: 80%;
+        
+        left: 1rem;
+    }
+     .test {
+        width: 43%;
+        display: inline-block;
+        color: #f8f9fc;
+        background-color: #dde2ec;
+        padding: 10px;
+        border-radius: 11px;
+        position: absolute;
+        bottom: 11rem;
+        left: 16rem;
+        height: 26%;
+        transform: rotate(-1deg);
+            .report_Content{
+                text-align: center;
+                font-size: 46px;
+                margin-top: 11%;
+            }
+      }
+    };
+
+        .takeQurantine-btn{
+            margin: 5% 0%;
+        
+            padding: 5px 15px;
+            font-size: 22px;
+    }
+    
+}
+
+.bottom-banner-section{
+    .wear-mask-Banner{
+        img{
+margin-bottom: -6px;
+        
+        width: 100%;
+        }
+    }
+}

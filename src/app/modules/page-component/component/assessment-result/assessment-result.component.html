@@ -1,12 +1,38 @@
-<div *ngIf="assessRes==2">
-    <p> High risk</p>
+
+<div class="sh-u-container">
+    <section>
+
+<div class="assessmentRes">
+    <img src="/assets/rtpcr.png" alt="rtpcr Report">
+    <mat-card class="test">
+        <mat-card-content class="report_Content" *ngIf="assessmentRes==8" >
+            High Risk
+        </mat-card-content>
+        <mat-card-content class="report_Content"  *ngIf="assessmentRes>=4  &&  assessmentRes < 8">
+            Medium Risk
+        </mat-card-content>
+        <mat-card-content class="report_Content" *ngIf="assessmentRes < 4">
+            Low Risk
+        </mat-card-content>
+      </mat-card>
+      
 </div>
 
-<div fxLayout="row" fxLayoutAlign="center center" class="resbtn">
-    <button type="button" mat-flat-button color="primary" class="signin-btn" >Take Quarantime</button>
+<div class="takeQrtBtn" fxLayout="column" fxLayoutAlign="center center" class="resbtn">
+    <button type="button" mat-flat-button color="primary" class="takeQurantine-btn" >Take Quarantine</button>
 </div> 
-<div fxLayout="row" fxLayoutAlign="center center" class="resbtn">
-    <p>To Know covid-19 cases histroy</p>
-    <button type="button" mat-flat-button color="primary" class="signin-btn"  ><a href="https://www.mohfw.gov.in">Visit the Link</a> </button>
-</div> 
+ 
+<div class="visitBtn" fxLayout="row" fxLayoutAlign="center center" class="resbtn">
+    <p></p>
+   <a href="https://www.mohfw.gov.in"> <button type="button" mat-flat-button color="primary" class="signin-btn"  >To Know covid-19 cases histories</button></a>
+</div>
+ 
+</section>
+
+</div>
+<section class="bottom-banner-section">
+    <div class="wear-mask-Banner">
+        <img src="/assets/wear-face-mask.jpg" alt="report banner">
+    </div>
+</section>
 
