@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/Providers/http/api.service';
 
 @Component({
@@ -8,14 +9,32 @@ import { ApiService } from 'src/app/Providers/http/api.service';
 })
 export class DashboardComponent implements OnInit {
  
-  ngOnInit() {
- 
+  public userDetails:any;
+
+  constructor(
+    private router: Router
+  ) {
   }
-  constructor(private apiService:ApiService) {}
 
-logout(){
-  this.apiService.signOut()
-  console.log("Logged out")
+// logout(){
+//   this.apiService.signOut()
+//   console.log("Logged out")
+// }
+
+ngOnInit(): void {
+  const storage = localStorage.getItem('google_auth');
+
+  if (storage) {
+    this.userDetails = JSON.parse(storage);
+  } else {
+    this.signOut();
+  }
+}
+
+signOut(): void {
+  localStorage.removeItem('google_auth');
+  this.router.navigateByUrl('/login').then();
 }
 
 }
+

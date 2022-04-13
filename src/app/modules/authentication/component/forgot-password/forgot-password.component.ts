@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -8,16 +9,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ForgotPasswordComponent implements OnInit {
   forgotPasswordForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private router:Router) { }
   newCred = [];
   ngOnInit(): void {
     this.forgotPasswordBuildForm();
 
   }
 
-  getpass() {
-
-  }
+ 
 
   forgotPasswordBuildForm() {
     this.forgotPasswordForm = this.formBuilder.group({
@@ -35,11 +34,14 @@ export class ForgotPasswordComponent implements OnInit {
         localStorage.setItem("signupCred", JSON.stringify(this.newCred))
       })
       console.log(this.newCred)
+      this.router.navigate(['./sign-in'])
     }
     else {
       console.log("Not matched")
     }
     console.log(this.forgotPasswordForm.controls.newPassword.value)
     console.log(this.forgotPasswordForm.controls.confirmPassword.value)
+
+    
   }
 }

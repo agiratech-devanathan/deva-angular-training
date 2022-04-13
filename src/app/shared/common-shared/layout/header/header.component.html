@@ -1,11 +1,14 @@
 <section>
-    <mat-toolbar color="primary" fxFlex="100" fxLayout="row" fxLayoutAlign="space-around center">
+    <mat-toolbar  fxFlex="100" fxLayout="row" fxLayoutAlign="space-around center">
         <div fxFlex="82"><span>Angular Learning App</span></div>
         <div fxFlex="18" fxLayout="row" fxLayoutAlign="space-around center">
             <button mat-icon-button routerLink="/assessment">Home</button>
             <button mat-icon-button>Contact Us</button>
-            <button mat-icon-button class="example-icon" (click)="logout()">
-                <mat-icon>person</mat-icon>
+            <button *ngIf="isLoggedIn" mat-icon-button class="example-icon" (click)="logout()">
+                <mat-icon>person</mat-icon><span>Logout</span>
+            </button>
+            <button *ngIf="!isLoggedIn"  mat-icon-button class="example-icon"  [routerLink]="['../authentication/sign-in']">
+                <mat-icon>person</mat-icon><span>Login</span>
             </button>
         </div>
     </mat-toolbar>

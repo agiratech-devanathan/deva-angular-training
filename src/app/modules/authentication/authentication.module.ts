@@ -9,6 +9,11 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { CommonSharedModule } from 'src/app/shared/common-shared/common-shared.module';
 import { AuthenticationComponent } from './authentication.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,  FacebookLoginProvider
+} from 'angularx-social-login';
+
 
 
 
@@ -27,6 +32,31 @@ import { AuthenticationComponent } from './authentication.component';
     ReactiveFormsModule,
     AuthenticationRoutingModule,
     CommonSharedModule,
-  ]
+    SocialLoginModule
+  ],
+  providers:[
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '759664874459-8kptigmc85h9lo49681b8h60mot0f7kq.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('663770914736188')
+          }
+       
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
 })
 export class AuthenticationModule { }
